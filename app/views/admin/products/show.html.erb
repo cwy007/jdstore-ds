@@ -3,7 +3,7 @@
 <% else %>
   <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
 <% end %>
-<p><%= @product.description %></p>
+<p><%= simple_format(@product.description) %></p>
 <h2>商品名：<%= @product.title %></h2>
 <h2>价格：¥ <%= @product.price %></h2>
 <h2>库存：<%= @product.quantity %></h2>
