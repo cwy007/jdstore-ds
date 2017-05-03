@@ -1,0 +1,9 @@
+<%= simple_form_for [:admin, @product] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :quantity %>
+  <%= f.input :price %>
+  <%= f.submit "Submit", data: { disable_with: "Submitting..." }, class: "btn btn-primary btn-block" %>
+<% end %>
+<br/>
+<%= link_to "Back to Products list", admin_products_path, class: "btn btn-danger btn-block" %>

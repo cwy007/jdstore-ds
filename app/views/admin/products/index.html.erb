@@ -1,0 +1,32 @@
+<h2>Products List</h2>
+<div class="pull-right" style="margin-bottom: 20px;" >
+  <%= link_to "新增商品", new_admin_product_path, class: "btn btn-primary btn-lg" %>
+</div>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <td>#</td>
+      <td>商品名</td>
+      <td>库存</td>
+      <td>价格</td>
+      <td>选项</td>
+      <td>时间</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.id %></td>
+        <td><%= link_to product.title, admin_product_path(product) %></td>
+        <td><%= product.quantity %></td>
+        <td><%= product.price %></td>
+        <td>
+          <%= link_to "Edit", edit_admin_product_path(product) %>
+          |
+          <%= link_to "Delete", admin_product_path(product), method: :delete %>
+        </td>
+        <td><%= product.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
