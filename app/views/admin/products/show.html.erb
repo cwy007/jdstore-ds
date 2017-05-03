@@ -1,6 +1,11 @@
+<% if @product.image.present? %>
+  <%= image_tag(@product.image.thumb.url, class: "thumbnail") %>
+<% else %>
+  <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+<% end %>
 <p><%= @product.description %></p>
 <h2>商品名：<%= @product.title %></h2>
 <h2>价格：¥ <%= @product.price %></h2>
 <h2>库存：<%= @product.quantity %></h2>
-<h2>新增时间：<%= @product.created_at %></h2>
-<h2>修改时间：<%= @product.updated_at %></h2>
+<h2>新增时间：<%= newTimeFormat(@product.created_at) %></h2>
+<h2>修改时间：<%= newTimeFormat(@product.updated_at) %></h2>
