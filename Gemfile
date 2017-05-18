@@ -38,7 +38,7 @@ gem "mini_magick"
 gem 'annotate'
 gem 'awesome_rails_console'
 gem "letter_opener", :group => :development
-
+gem "aasm"
 
 
 group :development, :test do
