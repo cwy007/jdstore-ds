@@ -8,3 +8,13 @@
 
 u = User.create(email:"101@qq.com", password: 123456, password_confirmation: 123456, is_admin: true)
 puts "新建一个admin用户！"
+
+
+# initial products
+
+Product.create!(title: "坚果Pro",
+  description: "锤子手机 细红线",
+  price: 2288,
+  quantity: 5,
+  image: open("http://img13.360buyimg.com/n1/s450x450_jfs/t5527/223/1660932474/149818/343ed1d7/59130e4cNa6d07fe0.jpg")
+  )
