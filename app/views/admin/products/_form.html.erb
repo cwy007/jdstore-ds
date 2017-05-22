@@ -6,7 +6,7 @@
   <% if @product.photos.present? %>
     <span>目前商品圖</span> <br>
     <% @product.photos.each do |p| %>
-      <%= image_tag p.image.thumb.url %><br>
+      <%= image_tag p.image.thumb.url unless p.image.blank? %><br>
     <% end %>
   <% end %>
   <%= f.label :image %><br>
