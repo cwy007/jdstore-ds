@@ -10,7 +10,7 @@
 # password 至少要六位数字
 
 u = User.create(
-                email:"chanweiyan@gmail.com",
+                email:"chanweiyan007@gmail.com",
                 password: 123456,
                 password_confirmation: 123456,
                 is_admin: true)
