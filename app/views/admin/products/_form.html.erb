@@ -3,12 +3,16 @@
   <%= f.input :description %>
   <%= f.input :quantity %>
   <%= f.input :price %>
-  <% if @product.image.present? %>
-    <h5>当前商品图</h5>
-    <%= image_tag(@product.image.thumb.url) %>
+  <% if @product.photos.present? %>
+    <span>目前商品圖</span> <br>
+    <% @product.photos.each do |p| %>
+      <%= image_tag p.image.thumb.url %><br>
+    <% end %>
   <% end %>
-  <%= f.input :image, as: :file %>
+  <%= f.label :image %><br>
+  <%= f.file_field :image, :multiple => true, name: "photos[image][]" %>
+
+  <br>
   <%= f.submit "Submit", data: { disable_with: "Submitting..." }, class: "btn btn-primary btn-block" %>
 <% end %>
 <br/>
-<%= link_to "Back to Products list", admin_products_path, class: "btn btn-danger btn-block" %>

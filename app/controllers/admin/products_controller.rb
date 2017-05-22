@@ -17,11 +17,17 @@ class Admin::ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
+    @photo = @product.photos.build    #for multi-pics
   end
 
   def create
     @product = Product.new(product_params)
     if @product.save
+      if params[:photos] != nil
+        params[:photos]['image'].each do |a|
+          @photo = @product.photos.create(:image => a)
+        end
+      end
       redirect_to admin_products_path, notice: "新增商品成功！"
     else
       render :new
