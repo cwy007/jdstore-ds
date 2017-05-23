@@ -63,6 +63,7 @@
   </div>
   <!-- End of product photos -->
 
+  <!-- start of right part-->
   <div class="col-xs-12 col-md-6">
     <h2><%= @product.title %></h2>
     <p><%= simple_format(@product.description) %></p>
@@ -76,3 +77,33 @@
       <% end %>
     </div>
   </div>
+  <!-- end of right part-->
+
+  <!-- start of comment & product details -->
+  <div class="col-md-12">
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#home">商品详情</a></li>
+      <li><a data-toggle="tab" href="#comment">商品评价()</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="home" class="tab-pane fade in active">
+        <h3>HOME</h3>
+        <p>Some content.</p>
+      </div>
+      <div id="comment" class="tab-pane fade">
+
+        <%= simple_form_for [@product,@comment] do |f| %>
+          <div class="comment-body">
+            <%= f.input :content, label: "添加评论" %>
+          </div>
+          <div class="submit">
+            <%= f.submit "提交", data: { disable_with: "提交中...", :class => "btn btn-primary btn-block" } %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <!-- end of comment & product details -->
+
+</div>
