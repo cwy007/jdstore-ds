@@ -39,5 +39,5 @@ Rails.application.routes.draw do
   namespace :account do
     resources :orders
   end
-  root 'products#index'
+  root 'welcome#index'
 end
