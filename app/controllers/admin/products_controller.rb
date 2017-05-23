@@ -40,7 +40,7 @@ class Admin::ProductsController < ApplicationController
       @product.photos.destroy_all                          #这会删除photos表中的数据
 
       params[:photos]['image'].each do |i|                #遍历白名单params中的数据
-        @photo = @product.photos.create(:image => a)      #新建
+        @photo = @product.photos.create(:image => i)      #新建
       end
 
       @product.update(product_params)
