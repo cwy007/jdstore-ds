@@ -27,11 +27,13 @@ puts "新建2个admin用户！"
 
 
 # initial products
-
-Product.create!(title: "坚果Pro",
-  description: "锤子手机 细红线",
-  price: 2288,
-  quantity: 5,
-  image: open("http://img13.360buyimg.com/n1/s450x450_jfs/t5527/223/1660932474/149818/343ed1d7/59130e4cNa6d07fe0.jpg")
-  )
-
+if Rails.env.development? & Product.all.blank?
+    20.times { |i|
+      Product.create!(title: "#{i+1} 坚果Pro",
+      description: "锤子手机 细红线",
+      price: 2288,
+      quantity: 5,
+      image: open("http://img13.360buyimg.com/n1/s450x450_jfs/t5527/223/1660932474/149818/343ed1d7/59130e4cNa6d07fe0.jpg")
+    )}
+  puts "新建10个商品"
+end

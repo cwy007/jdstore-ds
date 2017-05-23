@@ -17,11 +17,17 @@ class Admin::ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
+    @photo = @product.photos.build    #for multi-pics
   end
 
   def create
     @product = Product.new(product_params)
     if @product.save
+      if params[:photos] != nil
+        params[:photos]['image'].each do |a|
+          @photo = @product.photos.create(:image => a)
+        end
+      end
       redirect_to admin_products_path, notice: "新增商品成功！"
     else
       render :new
@@ -30,8 +36,17 @@ class Admin::ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    if @product.update(product_params)
-      redirect_to admin_products_path, notice: "商品修改成功！"
+    if params[:photos] != nil
+      @product.photos.destroy_all                          #这会删除photos表中的数据
+
+      params[:photos]['image'].each do |i|                #遍历白名单params中的数据
+        @photo = @product.photos.create(:image => i)      #新建
+      end
+
+      @product.update(product_params)
+      redirect_to admin_products_path
+    elsif @product.update(product_params)
+      redirect_to admin_products_path
     else
       render :edit
     end
