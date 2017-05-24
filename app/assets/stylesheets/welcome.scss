@@ -1,3 +1,38 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// <!-- start of landing page页面轮播 -->
+.carousel {
+  height: 750px;
+  // border: 3px solid blue;
+  .carousel-inner div.item img {
+      // -webkit-filter: grayscale(90%);
+      // filter: grayscale(90%); /* make all photos black and white */
+      height: 750px !important; /* 改变图片高度 */
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+      display: inline;
+      overflow: hidden;
+      // border: 3px solid red;
+
+  }
+
+  .carousel-caption h3 {
+      color: #fff !important;
+  }
+
+  @media (max-width: 600px) {
+      .carousel-caption {
+          display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+      }
+  }
+  a.carousel-control i {
+    font-size: 120px;          /* 改变大小 */
+    font-weight: normal;
+    line-height: 750px;        /* 为了使元素居中 */
+  }
+}
+
+
+// <!-- end of landing page页面轮播 -->
