@@ -1,0 +1,30 @@
+<h2 class="text-center">类别(Category)列表</h2>
+<div class="pull-right">
+  <%= link_to "New Category", new_admin_category_path, class: "btn btn-primary" %>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>名称</th>
+      <th>管理选项</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @categories.each do |category| %>
+    <tr>
+      <td>
+        <%= category.id %>
+      </td>
+      <td>
+        <%= category.name %>
+      </td>
+      <td>
+        <%= link_to "Edit", edit_admin_category_path(category) %>
+        |
+        <%= link_to "Destroy", admin_category_path(category), method: :delete%>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

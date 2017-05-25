@@ -18,3 +18,54 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
  @import "font-awesome";
+ @import "select2";
+ @import "select2-bootstrap";
+
+
+ // devise sign-up page
+ .row {
+   .col-md-4 {
+
+   }
+ }
+ .signup {
+   border: 5px solid #DDD;
+   height: auto;
+   width: 90%;
+   margin: 50px auto ;
+   border-radius: 20px;
+   padding: 0;
+   h2 {
+     margin-top: 40px;
+   }
+   .group {
+     width: 320px;
+     margin: 30px auto 25px;
+   }
+ }
+ // end of signup
+
+ // devise log-in page
+ .login{
+   border: 5px solid #DDD;
+   height: auto;
+   width: 90%;
+   margin: 50px auto ;
+   border-radius: 20px;
+   padding: 0;
+   h2 {
+     margin-top: 50px;
+   }
+   .group {
+     width: 320px;
+     margin: 30px auto 25px;
+     .checkbox {
+       display: inline;
+     }
+   }
+   .form-group.boolean {
+     display: inline ;
+     width: 160px;
+   }
+ }
+ // end of log-in page

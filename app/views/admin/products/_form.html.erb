@@ -1,8 +1,25 @@
 <%= simple_form_for [:admin, @product] do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :quantity %>
-  <%= f.input :price %>
+
+  <div class="group">
+    <%= f.input :title %>
+  </div>
+
+  <div class="group">
+    <%= f.input :quantity %>
+  </div>
+
+  <div class="group">
+    <%= f.input :price %>
+  </div>
+
+  <div class="group">
+    <%= f.association :category %>   <!-- 这是用simple_form制作下拉选单的写法，与rails内建的form_for写法不同，效果一样-->
+  </div>
+
+  <div class="group">
+    <%= f.input :description %>
+  </div>
+
   <% if @product.photos.present? %>
     <span>目前商品圖</span> <br>
     <% @product.photos.each do |p| %>
@@ -13,6 +30,12 @@
   <%= f.file_field :image, :multiple => true, name: "photos[image][]" %>
 
   <br>
+
   <%= f.submit "Submit", data: { disable_with: "Submitting..." }, class: "btn btn-primary btn-block" %>
 <% end %>
-<br/>
+
+<script type="text/javascript">
+  $( "#product_category_id" ).select2({
+    theme: "bootstrap"
+  });
+</script>

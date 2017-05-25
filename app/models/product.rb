@@ -10,6 +10,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  image       :string
+#  category_id :integer
 #
 
 class Product < ApplicationRecord
@@ -19,5 +20,7 @@ class Product < ApplicationRecord
   accepts_nested_attributes_for :photos
 
   has_many :comments
+
+  belongs_to :category, :optional => true
 
 end
