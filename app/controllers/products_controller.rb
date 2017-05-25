@@ -9,6 +9,7 @@ class ProductsController < ApplicationController
     @photos = @product.photos
     @comment = Comment.new
     @comments = @product.comments.order("created_at DESC")
+    @product_details = @product.product_details
   end
 
   def add_to_cart

@@ -97,17 +97,27 @@
     <!-- end of right part-->
 
     <!-- start of comment & product details -->
-    <div class="col-md-12 comment">
+    <div class="col-md-12 comment product_details">
       <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#home">商品详情</a></li>
+        <li class="active"><a data-toggle="tab" href="#product_details">商品详情</a></li>
         <li><a data-toggle="tab" href="#comment">商品评价( <%= @product.comments.count %> )</a></li>
       </ul>
       <div class="col-md-8 col-md-offset-2">
         <div class="tab-content">
-          <div id="home" class="tab-pane fade in active">
-            <h3>HOME</h3>
-            <p>Some content.</p>
+          <!-- start of product_details  -->
+          <div id="product_details" class="tab-pane fade in active">
+            <% if @product_details.present? %>
+              <% @product_details.each do |p| %>
+              <%= image_tag p.image.url %>
+              <% end %>
+            <% else %>
+              <h2>商家没有上传商品详情图片</h2><br>
+              <%= image_tag("http://placehold.it/400x400&text=No Product_details Images", class: "thumbnail" ) %>
+            <% end %>
           </div>
+          <!-- end of product_details  -->
+
+          <!-- start of new comment-->
           <div id="comment" class="tab-pane">
             <%= simple_form_for [@product,@comment] do |f| %>
               <div class="comment-body">
@@ -117,6 +127,7 @@
                 <%= f.submit "提交", data: { disable_with: "提交中..."}, :class => "btn btn-default" , style: "background-color:#44A8F2; color:#FFF"%>
               </div>
             <% end %>
+            <!-- end of new comment-->
             <br>
             <!-- start of comments#index -->
             <% @comments.each do |comment| %>
