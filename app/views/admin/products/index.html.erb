@@ -6,10 +6,11 @@
   <thead>
     <tr>
       <td>#</td>
-      <td>图片</td>
+      <td>商品图</td>
       <td>商品名</td>
       <td>库存</td>
       <td>价格</td>
+      <td>类别</td>
       <td>选项</td>
       <td>新增时间</td>
     </tr>
@@ -17,7 +18,9 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
-        <td><%= product.id %></td>
+        <td>
+          <%= product.id %>
+        </td>
         <td>
           <%= link_to product_path(product) do %>
           <% if product.photos.present? %>
@@ -27,15 +30,26 @@
           <% end %>
           <% end %>
         </td>
-        <td><%= link_to product.title, admin_product_path(product) %></td>
-        <td><%= product.quantity %></td>
-        <td><%= product.price %></td>
+        <td>
+          <%= link_to product.title, admin_product_path(product) %>
+        </td>
+        <td>
+          <%= product.quantity %>
+        </td>
+        <td>
+          <%= product.price %>
+        </td>
+        <td>
+          <%= product.category.try(:name)%>  <!-- 利用try方法，即使产品类别为空也不会报错 -->
+        </td>
         <td>
           <%= link_to "Edit", edit_admin_product_path(product) %>
           |
           <%= link_to "Delete", admin_product_path(product), method: :delete %>
         </td>
-        <td><%= newTimeFormat(product.created_at) %></td>
+        <td>
+          <%= newTimeFormat(product.created_at) %>
+        </td>
       </tr>
     <% end %>
   </tbody>
