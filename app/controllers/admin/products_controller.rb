@@ -17,15 +17,19 @@ class Admin::ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
-    @photo = @product.photos.build    #for multi-pics
   end
 
   def create
     @product = Product.new(product_params)
     if @product.save
       if params[:photos] != nil
-        params[:photos]['image'].each do |a|
-          @photo = @product.photos.create(:image => a)
+        params[:photos]['image'].each do |i|
+          @photo = @product.photos.create(:image => i)
+        end
+      end
+      if params[:product_details] != nil
+        params[:product_details]['image'].each do |i|
+          @product_detail = @product.product_details.create(:image => i)
         end
       end
       redirect_to admin_products_path, notice: "新增商品成功！"
@@ -43,6 +47,13 @@ class Admin::ProductsController < ApplicationController
         @photo = @product.photos.create(:image => i)      #新建
       end
 
+      if params[:product_details] != nil
+        @product.product_details.destroy_all
+
+        params[:product_details]['image'].each do |i|
+          @product_detail = @product.product_details.create(:image => i)
+        end
+      end
       @product.update(product_params)
       redirect_to admin_products_path
     elsif @product.update(product_params)
