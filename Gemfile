@@ -28,20 +28,21 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'bootstrap-sass', '~> 3.3.6'
-gem 'devise'
-gem 'simple_form'
-gem "font-awesome-rails"
-gem 'carrierwave', '~> 1.0'
-gem "mini_magick"
-gem 'annotate'
-gem 'awesome_rails_console'
-gem "letter_opener", :group => :development
-gem "aasm"
-gem 'carrierwave-qiniu'
+gem 'bootstrap-sass', '~> 3.3.6'               #css框架，专修页面
+gem 'devise'                                   #登录系统
+gem 'simple_form'                              #制作表单
+gem "font-awesome-rails"                       #icon图标
+gem 'carrierwave', '~> 1.0'                    #图片上传
+gem "mini_magick"                              #调整图片尺寸
+gem 'annotate'                                 #注释栏位信息到对应的model中
+gem 'awesome_rails_console'                    #优化rails console显示页面
+gem "letter_opener", :group => :development    #开发时预览站内信
+gem "aasm"                                     #有限状态机
+gem 'carrierwave-qiniu'                        
 gem 'qiniu-rs'
 gem 'figaro'
-gem "intercom-rails"
+gem "intercom-rails"                           #客服系统
+gem "select2-rails"                            #制作单选或多选选单
 
 
 group :development, :test do

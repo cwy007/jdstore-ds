@@ -7,27 +7,27 @@
       <div class="tab-content preview-pic">
         <div id="pic1" class="tab-pane fade in active">
           <% if @photos[0].present? %>
-            <%= image_tag @photos[0].image.medium.url %>
+            <%= image_tag @photos[0].image.url %>
           <% end %>
         </div>
         <div id="pic2" class="tab-pane fade">
           <% if @photos[1].present? %>
-            <%= image_tag @photos[1].image.medium.url %>
+            <%= image_tag @photos[1].image.url %>
           <% end %>
         </div>
         <div id="pic3" class="tab-pane fade">
           <% if @photos[2].present? %>
-            <%= image_tag @photos[2].image.medium.url %>
+            <%= image_tag @photos[2].image.url %>
           <% end %>
         </div>
         <div id="pic4" class="tab-pane fade">
           <% if @photos[3].present? %>
-            <%= image_tag @photos[3].image.medium.url %>
+            <%= image_tag @photos[3].image.url %>
           <% end %>
         </div>
         <div id="pic5" class="tab-pane fade">
           <% if @photos[4].present? %>
-            <%= image_tag @photos[4].image.medium.url %>
+            <%= image_tag @photos[4].image.url %>
           <% end %>
         </div>
       </div>
@@ -126,6 +126,6 @@
       </div>
     </div>
     <!-- end of comment & product details -->
-    
+
   </div>
 </div>

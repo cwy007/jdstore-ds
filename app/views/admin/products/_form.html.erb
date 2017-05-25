@@ -33,4 +33,9 @@
 
   <%= f.submit "Submit", data: { disable_with: "Submitting..." }, class: "btn btn-primary btn-block" %>
 <% end %>
-<br/>
+
+<script type="text/javascript">
+  $( "#product_category_id" ).select2({
+    theme: "bootstrap"
+  });
+</script>

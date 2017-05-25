@@ -6,24 +6,33 @@
 .row {
   .preview {
     .preview-pic {
+      // border: 1px solid red;
       img {
-        border: 1px solid #ddd;
+        margin-top: 60px;
+        height: 396px;
+        width: 595px;
+        // border: 1px solid #ddd;
+        vertical-align: top;
       }
     }
     .preview-thumb {
       margin: 10px 0;
-      img {
-        height: 77px;
-        width: 77px;
-      }
-      a {
-        border-radius: 0px;
-        padding: 0px;
-        border: 1px solid #ddd;
-      }
-      a:hover,
-      a:active {
-        border: 1px solid #D32048;
+      padding: 0 0 0 100px;;
+      li {
+        margin: 20px 10px 50px 10px;;
+        img {
+          height: 35px;
+          width: 53px;
+        }
+        a {
+          border-radius: 0px;
+          padding: 0px;
+          border: 1px solid #ddd;
+        }
+        a:hover,
+        a:active {
+          border: 1px solid #D32048;
+        }
       }
     }
   }
