@@ -19,17 +19,59 @@
   <div class="group">
     <%= f.input :description %>
   </div>
+<div class="row">
+  <div class="col-md-3">
 
+  </div>
+</div>
   <% if @product.photos.present? %>
-    <span>目前商品圖</span> <br>
-    <% @product.photos.each do |p| %>
-      <%= image_tag p.image.thumb.url unless p.image.blank? %><br>
-    <% end %>
+    <h5>目前商品图</h5> <br>
+    <div class="row">
+      <% @product.photos.each_with_index do |p,index| %>
+        <div class="col-md-3">
+          <table class="table table-bordered">
+            <tr>
+              <td class="text-center">
+                <%= index + 1 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= image_tag p.image.thumb.url %>
+              </td>
+            </tr>
+          </table>
+        </div>
+      <% end %>
+    </div>
   <% end %>
+
   <div class="form-group">
     <%= f.label :Product_photos_image %>
     <%= f.file_field :image, :multiple => true, name: "photos[image][]" %>
   </div>
+  <hr>
+  <% if @product.product_details.present? %>
+    <h5>目前商品详情图 Product_details_images</h5>
+    <div class="row">
+      <% @product.product_details.each_with_index do |p,index| %>
+        <div class="col-md-3">
+          <table class="table table-bordered">
+            <tr>
+              <td class="text-center">
+                <%= index + 1 %>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <%= image_tag p.image.thumb.url %>
+              </td>
+            </tr>
+          </table>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
   <div class="form-group">
     <%= f.label :Product_details_image %>
     <%= f.file_field :image, :multiple => true, name: "product_details[image][]" %>

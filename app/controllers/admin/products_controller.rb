@@ -47,6 +47,13 @@ class Admin::ProductsController < ApplicationController
         @photo = @product.photos.create(:image => i)      #新建
       end
 
+      if params[:product_details] != nil
+        @product.product_details.destroy_all
+
+        params[:product_details]['image'].each do |i|
+          @product_detail = @product.product_details.create(:image => i)
+        end
+      end
       @product.update(product_params)
       redirect_to admin_products_path
     elsif @product.update(product_params)
