@@ -26,9 +26,14 @@
       <%= image_tag p.image.thumb.url unless p.image.blank? %><br>
     <% end %>
   <% end %>
-  <%= f.label :image %><br>
-  <%= f.file_field :image, :multiple => true, name: "photos[image][]" %>
-
+  <div class="form-group">
+    <%= f.label :Product_photos_image %>
+    <%= f.file_field :image, :multiple => true, name: "photos[image][]" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :Product_details_image %>
+    <%= f.file_field :image, :multiple => true, name: "product_details[image][]" %>
+  </div>
   <br>
 
   <%= f.submit "Submit", data: { disable_with: "Submitting..." }, class: "btn btn-primary btn-block" %>
