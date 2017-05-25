@@ -37,8 +37,8 @@ gem "mini_magick"                              #调整图片尺寸
 gem 'annotate'                                 #注释栏位信息到对应的model中
 gem 'awesome_rails_console'                    #优化rails console显示页面
 gem "letter_opener", :group => :development    #开发时预览站内信
-gem "aasm"                                     #有限状态机
-gem 'carrierwave-qiniu'                        
+gem "aasm"
+gem 'carrierwave-qiniu'
 gem 'qiniu-rs'
 gem 'figaro'
 gem "intercom-rails"                           #客服系统

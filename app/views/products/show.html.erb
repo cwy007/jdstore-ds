@@ -1,8 +1,8 @@
 <div class="row">
-  <div class="col-md-10 col-md-offset-1">
+  <div class="col-md-10 col-md-offset-1 show">
 
     <!-- Start of product photos -->
-    <div class="col-xs-12 col-md-6 preview">
+    <div class="col-md-6 preview">
       <% if @photos.present? %>
       <div class="tab-content preview-pic">
         <div id="pic1" class="tab-pane fade in active">
@@ -32,31 +32,41 @@
         </div>
       </div>
       <ul class="nav nav-pills preview-thumb">
-        <li class="active"><a data-toggle="pill" href="#pic1">
-          <% if @photos[0].present? %>
-            <%= image_tag @photos[0].image.thumb.url %>
-          <% end %>
-        </a></li>
-        <li><a data-toggle="pill" href="#pic2">
-          <% if @photos[1].present? %>
-            <%= image_tag @photos[1].image.thumb.url %>
-          <% end %>
-        </a></li>
-        <li><a data-toggle="pill" href="#pic3">
-          <% if @photos[2].present? %>
-            <%= image_tag @photos[2].image.thumb.url %>
-          <% end %>
-        </a></li>
-        <li><a data-toggle="pill" href="#pic4">
-          <% if @photos[3].present? %>
-            <%= image_tag @photos[3].image.thumb.url %>
-          <% end %>
-        </a></li>
-        <li><a data-toggle="pill" href="#pic5">
-          <% if @photos[4].present? %>
-            <%= image_tag @photos[4].image.thumb.url %>
-          <% end %>
-        </a></li>
+        <% if @photos[0].present? %>
+          <li class="active">
+            <a data-toggle="pill" href="#pic1">
+              <%= image_tag @photos[0].image.thumb.url %>
+            </a>
+          </li>
+        <% end %>
+        <% if @photos[1].present? %>
+          <li>
+            <a data-toggle="pill" href="#pic2">
+              <%= image_tag @photos[1].image.thumb.url %>
+            </a>
+          </li>
+        <% end %>
+        <% if @photos[2].present? %>
+          <li>
+            <a data-toggle="pill" href="#pic3">
+              <%= image_tag @photos[2].image.thumb.url %>
+            </a>
+          </li>
+        <% end %>
+        <% if @photos[3].present? %>
+          <li>
+            <a data-toggle="pill" href="#pic4">
+              <%= image_tag @photos[3].image.thumb.url %>
+            </a>
+          </li>
+        <% end %>
+        <% if @photos[4].present? %>
+          <li>
+            <a data-toggle="pill" href="#pic5">
+              <%= image_tag @photos[4].image.thumb.url %>
+            </a>
+          </li>
+        <% end %>
       </ul>
       <% else %>
         <%= image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail") %>
@@ -65,67 +75,73 @@
     <!-- End of product photos -->
 
     <!-- start of right part-->
-    <div class="col-xs-12 col-md-6">
-      <h2><%= @product.title %></h2>
-      <p><%= simple_format(@product.description) %></p>
-      <p>数量：<%= @product.quantity %></p>
-      <p>¥ <%= @product.price %></p>
-      <div class="pull-right">
-        <% if @product.quantity.present? && @product.quantity > 0 %>
-          <%= link_to "加入购物车", add_to_cart_product_path(@product), method: :post, class: "btn btn-lg btn-danger" %>
-        <% else %>
-          已销售一空，无法购买
-        <% end %>
+    <div class="col-md-6">
+      <div class="product-info-section">
+        <h1 class="produc-title"><%= @product.title %></h1>
+        <hr>
+        <p class="price">¥ <%= @product.price %></p>
+        <p>库存：<%= @product.quantity %></p>
+        <p>邮费：免费</p>
+        <hr>
+        <p><%= simple_format(@product.description) %></p>
+        <hr>
+        <div class="">
+          <% if @product.quantity.present? && @product.quantity > 0 %>
+            <%= link_to "加入购物车", add_to_cart_product_path(@product), method: :post, class: "btn btn-lg" %>
+          <% else %>
+            已销售一空，无法购买
+          <% end %>
+        </div>
       </div>
     </div>
     <!-- end of right part-->
 
     <!-- start of comment & product details -->
-    <div class="col-md-12">
+    <div class="col-md-12 comment">
       <ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" href="#home">商品详情</a></li>
         <li><a data-toggle="tab" href="#comment">商品评价( <%= @product.comments.count %> )</a></li>
       </ul>
-
-      <div class="tab-content">
-        <div id="home" class="tab-pane fade in active">
-          <h3>HOME</h3>
-          <p>Some content.</p>
-        </div>
-        <div id="comment" class="tab-pane fade">
-
-          <%= simple_form_for [@product,@comment] do |f| %>
-            <div class="comment-body">
-              <%= f.input :content, label: "添加评论" %>
-            </div>
-            <div class="submit">
-              <%= f.submit "提交", data: { disable_with: "提交中...", :class => "btn btn-primary btn-lg" } %>
-            </div>
-          <% end %>
-          <br>
-          <!-- start of comments#index -->
-          <% @comments.each do |comment| %>
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <span>
-                  <%= comment.user.email %>
-                </span>
-                <span class="pull-right">
-                  <%= comment.created_at.to_s(:long) %>
-                </span>
+      <div class="col-md-8 col-md-offset-2">
+        <div class="tab-content">
+          <div id="home" class="tab-pane fade in active">
+            <h3>HOME</h3>
+            <p>Some content.</p>
+          </div>
+          <div id="comment" class="tab-pane">
+            <%= simple_form_for [@product,@comment] do |f| %>
+              <div class="comment-body">
+                <%= f.input :content, label: "添加评论", :input_html => {:rows => 5} %>
               </div>
-              <div class="panel-body">
-                <span>
-                  <%= comment.content %>
-                </span>
+              <div class="submit"  >
+                <%= f.submit "提交", data: { disable_with: "提交中..."}, :class => "btn btn-default" , style: "background-color:#44A8F2; color:#FFF"%>
               </div>
-            </div>
-          <% end %>
-          <!-- end of comments#index -->
+            <% end %>
+            <br>
+            <!-- start of comments#index -->
+            <% @comments.each do |comment| %>
+              <div class="well">
+                <div class="info">
+                  <span>
+                    <%= comment.user.email %>
+                  </span>
+                  <span class="pull-right">
+                    <%= comment.created_at.to_s(:long) %>
+                  </span>
+                </div>
+                <hr>
+                <div class="comment-body">
+                  <span>
+                    <%= simple_format(comment.content) %>
+                  </span>
+                </div>
+              </div>
+            <% end %>
+            <!-- end of comments#index -->
+          </div>
         </div>
       </div>
     </div>
     <!-- end of comment & product details -->
-
   </div>
 </div>
