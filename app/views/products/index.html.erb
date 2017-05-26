@@ -16,12 +16,20 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li class="home"><%= link_to "首页", products_path %></li>
-            <% Category.all.each do |category|%>
+            <% Category.all.each_with_index do |category,index|%>
                 <li>
-                  <%= link_to products_path(category: category.name) do %>
-                  <div class="category-icon">
-                    <img src="http://placehold.it/50x50&text=No Pic" alt="icon">
-                  </div>
+                  <%= link_to products_path(category: category.name) do %>    <!--根据不同的索引号显示图标-->
+                  <% if index == 0 %>
+                    <img src="<%= image_url "icon-spark.svg" %>" onerror="this.src='your.png'">
+                  <% elsif index == 1 %>
+                    <img src="<%= image_url "icon-mavic.svg" %>" onerror="this.src='your.png'">
+                  <% elsif index == 2 %>
+                    <img src="<%= image_url "icon-phantom.svg" %>" onerror="this.src='your.png'">
+                  <% elsif index == 3 %>
+                    <img src="<%= image_url "icon-osmo.svg" %>" onerror="this.src='your.png'">
+                  <% elsif index == 4 %>
+                    <img src="<%= image_url "icon-inspire.svg" %>" onerror="this.src='your.png'">
+                  <% end %>
                   <div>
                     <%= category.name %>
                   </div>
