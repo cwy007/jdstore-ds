@@ -24,9 +24,14 @@ u = User.create(
 
 puts "新建2个admin用户！"
 
+#initial category
+Category.create(name: '"晓"Spark系列')
+Category.create(name: '"御"Mavic')
+Category.create(name: "精灵PHANTOM系列")
+Category.create(name: "灵眸Osmo系列")
+Category.create(name: '"悟"Inspire系列')
+puts "新建五个分类"
 
-
-# initial products
 if Rails.env.development? & Product.all.blank?
     20.times { |i|
       Product.create!(title: "#{i+1} 坚果Pro",

@@ -2,6 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+//products#index category
+nav.category_nav {
+  // border: 1px solid red;
+
+  ul {
+    // border: 1px solid red;
+    li.home {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 26px;
+    }
+    li {
+      // border: 1px solid red;
+      margin: 0 30px;
+      img {
+        display: block;  //与下面一行结合，使图片居中
+        margin: 12px auto;
+      }
+    }
+  }
+}
+
+
 // products#show product photos
 .row {
   .preview {
