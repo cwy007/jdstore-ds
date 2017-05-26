@@ -1,0 +1,47 @@
+<h2 class="text-center">推荐商品(recommend)列表</h2>
+<div class="pull-right" style="margin-bottom:40px;">
+  <%= link_to "New Recommend", new_admin_recommend_path, class: "btn btn-primary" %>
+</div>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>index</th>
+      <th>image</th>
+      <th>name</th>
+      <th>link</th>
+      <th>description</th>
+      <th>actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @recommends.each_with_index do |recommend,index| %>
+    <tr>
+      <td>
+        <%= index %>
+      </td>
+      <td>
+        <% if recommend.image.present? %>
+          <%= image_tag(recommend.image.thumb.url, class: "thumbnail") %>
+        <% else %>
+          <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+        <% end %>
+      </td>
+      <td>
+        <%= recommend.name %>
+      </td>
+      <td>
+        <%= recommend.link %>
+      </td>
+      <td>
+        <%= simple_format(recommend.description) %>
+      </td>
+      <td>
+        <%= link_to "Edit", edit_admin_recommend_path(recommend) %>
+        |
+        <%= link_to "Destroy", admin_recommend_path(recommend), method: :delete%>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

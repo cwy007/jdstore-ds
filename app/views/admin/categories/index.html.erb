@@ -2,19 +2,27 @@
 <div class="pull-right">
   <%= link_to "New Category", new_admin_category_path, class: "btn btn-primary" %>
 </div>
-<table class="table">
+<table class="table table-bordered">
   <thead>
     <tr>
-      <th>#</th>
+      <th>编号</th>
+      <th>category_icon</th>
       <th>名称</th>
       <th>管理选项</th>
     </tr>
   </thead>
   <tbody>
-    <% @categories.each do |category| %>
+    <% @categories.each_with_index do |category,index| %>
     <tr>
       <td>
-        <%= category.id %>
+        <%= index + 1 %>
+      </td>
+      <td>
+        <% if category.category_icon.present? %>
+          <%= image_tag(category.category_icon.thumb.url, class: "thumbnail") %>
+        <% else %>
+          <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+        <% end %>
       </td>
       <td>
         <%= category.name %>

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       end
     end
     resources :categories
+    resources :recommends
   end
 
   resources :products do
