@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 // <!-- start of landing page页面轮播 -->
-.carousel {
+.carousel .welcome{
   height: 750px;
   // border: 3px solid blue;
   .carousel-inner div.item img {
@@ -27,7 +27,7 @@
           display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
       }
   }
-  a.carousel-control i {
+  a.carousel-control.right > i {
     font-size: 120px;          /* 改变大小 */
     font-weight: normal;
     line-height: 750px;        /* 为了使元素居中 */
