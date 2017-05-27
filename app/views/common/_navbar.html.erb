@@ -18,9 +18,50 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <%= link_to carts_path do %>
-            购物车 <i class="fa fa-shopping-cart"></i> ( <%= current_cart.products.count %> )
-          <% end %>
+          <div id="top-cart" class="pull-right" >
+            <div class="cart-bd pull-right">
+              <%= link_to carts_path do %>
+                购物车 <i class="fa fa-shopping-cart"></i> ( <%= current_cart.products.count %> )
+              <% end %>
+            </div>
+            <div class="clearfix">
+
+            </div>
+            <div class="cart-hide">
+              <% if current_cart.cart_items.count != 0 %>
+                <% current_cart.cart_items.each do |cart_item| %>
+                  <div class="cart-option pull-right">
+                    <span class="product-price">
+                      ¥ <%= cart_item.product.price %> × <%= cart_item.quantity %>
+                    </span> <br>
+                    <span class="cart-action">
+                      <%= link_to "删除", cart_item_path(cart_item.product), method: :delete %>
+                    </span>
+                  </div>
+
+                  <div class="product-title pull-right">
+                    <%= link_to cart_item.product.title, product_path(cart_item.product) %>
+                  </div>
+
+                  <% if cart_item.product.photos[0].present? %>
+                    <%= link_to product_path(cart_item.product) do %>
+                      <span class="product-image pull-right">
+                        <%= image_tag (cart_item.product.photos[0].image.thumb.url) %>
+                      </span>
+                    <% end %>
+                  <% end %>
+                  <div class="clearfix"></div>
+                <% end %>
+                <div class="checkout ">
+                  <%= link_to "确认结账", checkout_carts_path, method: :post, class: "btn btn-danger btn-sm pull-right" %>
+                  <span class="total">
+                    总计: <em><%= render_cart_total_price(current_cart) %></em> RMB
+                  </span>
+                </div>
+              <% else %>
+                <div class="notice">购物车还没有商品！</div>
+              <% end %>
+          </div>
         </li>
         <% if !current_user %>
           <li><%= link_to content_tag(:i, " 注册", class: "fa fa-sign-in"), new_user_registration_path %></li>

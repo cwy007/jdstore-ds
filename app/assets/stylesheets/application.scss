@@ -22,13 +22,90 @@
  @import "select2-bootstrap";
 
 
- // devise sign-up page
- .row {
-   .col-md-4 {
+// start of navbar-cart
+#top-cart {
+  .cart-bd {
+    width: 130px;
+    height: 50px;
+    padding: 15px 15px;
+  }
+  .cart-hide {
+    font-size: 12px;
+    background: #FFF;
+    position: absolute;
+    right: 0px;
+    top: 50px;
+    z-index: 99;
+    border: 1px solid #DDD;
+    width: 330px;
+    display: none;
 
-   }
- }
- .signup {
+    .product-image img{
+      height: 35px;
+      width: 53px;
+      margin: 8px;
+    }
+
+    .cart-option {
+      a {
+        text-decoration: none;
+        color: #707473 ;
+      }
+      a:hover {
+        color: #44A8F2 ;
+      }
+
+      text-align: right;
+      width: 110px;
+      margin: 8px 0px;
+
+      .product-price{
+        padding: 8px 4px;
+        font-size: 16px;
+        color: #333;
+      }
+      .cart-action {
+        padding: 8px 4px;
+      }
+    }
+
+    .product-title {
+      width: 140px;
+      padding: 0px 5px;
+      margin: 8px 0px;
+      a {
+        text-decoration: none;
+        color: #707473 ;
+      }
+      a:hover {
+        color: #44A8F2 ;
+      }
+    }
+
+    .clearfix {
+      border-bottom: 1px solid #DDD;
+    }
+
+    .notice {
+      margin: 8px 15px;
+      font-size: 26px;
+    }
+
+    .checkout {
+      margin: 15px 0px 20px 0;
+      padding: 0 15px;
+    em {
+      font-size: 16px;
+    }
+    }
+  }
+}
+// end of navbar-cart
+
+
+// devise sign-up page
+
+.signup {
    border: 5px solid #DDD;
    height: auto;
    width: 90%;
@@ -42,11 +119,11 @@
      width: 320px;
      margin: 30px auto 25px;
    }
- }
- // end of signup
+}
+// end of signup
 
- // devise log-in page
- .login{
+// devise log-in page
+.login{
    border: 5px solid #DDD;
    height: auto;
    width: 90%;
@@ -67,5 +144,7 @@
      display: inline ;
      width: 160px;
    }
- }
+}
+
+
  // end of log-in page

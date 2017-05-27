@@ -1,0 +1,23 @@
+/**
+ * @描述：通用CSS文件
+
+ * @版本：beta 1.0
+ */
+body {
+  font: normal 12px/22px Arial, Verdana, Lucida, Helvetica, simsun, sans-serif;
+  margin: 0px;
+  padding: 0px;
+  color: #999;
+
+}
+ol, ul { list-style: none; margin: 0px;padding: 0px;}
+
+a {
+  text-decoration: none;
+  color: #707473 ;
+  font-family: Arial, Helvetica;
+}
+
+a:hover {
+  color: #44A8F2 ;
+}
