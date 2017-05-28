@@ -43,6 +43,8 @@ gem 'qiniu-rs'
 gem 'figaro'
 gem "intercom-rails"                           #客服系统
 gem "select2-rails"                            #制作单选或多选选单
+gem "rails-i18n"          #Rails 中文翻译词汇档
+gem "devise-i18n"         #Devise 翻译档
 
 
 group :development, :test do
