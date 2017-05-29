@@ -1,17 +1,16 @@
 <!-- start of landing page页面轮播 -->
-<div id="myCarousel" class="carousel slide welcome" data-ride="carousel">
+<div id="Carousel1" class="carousel slide welcome" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-    <li data-target="#myCarousel" data-slide-to="3"></li>
+    <li data-target="#Carousel1" data-slide-to="0" class="active"></li>
+    <li data-target="#Carousel1" data-slide-to="1"></li>
+    <li data-target="#Carousel1" data-slide-to="2"></li>
   </ol>
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <div class="item active">
-      <img src=" <%= image_url "pic-1.png" %> " alt="Los Angeles">
+      <img src=" <%= image_url "pic-1.png" %> " >
     </div>
 
     <div class="item">
@@ -22,18 +21,107 @@
       <img src="<%= image_url "pic-3.png" %>" alt="New York">
     </div>
 
-    <div class="item">
-      <img src="<%= image_url "pic-4.png" %>" alt="New York">
-    </div>
   </div>
 
   <!-- Left and right controls -->
-  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+  <a class="left carousel-control" href="#Carousel1" data-slide="prev">
     <i class="fa fa-angle-left"></i>
   </a>
-  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+  <a class="right carousel-control" href="#Carousel1" data-slide="next">
     <i class="fa fa-angle-right"></i>
   </a>
+  <div class="carousel-caption">
+    <img src="<%= image_url "pic-4.png" %>" alt="New York">
+    <p>换个角度看世界</p>
+    <%= link_to "了解更多", products_path, class: "btn btn-lg" %>
+  </div>
 </div>
-
 <!-- end of landing page页面轮播 -->
+
+<!-- start of apply-area -->
+<div class="scene-area">
+  <h1 class="text-center">使用场景</h1>
+  <div class="row">
+    <div class="col-md-4 scene">
+      <img src=" <%= image_url "sence-1.jpg" %> " >
+      <p>旅行</p>
+
+    </div>
+    <div class="col-md-4 scene">
+      <img src=" <%= image_url "sence-2.jpg" %> " >
+      <p>家庭/记录</p>
+
+    </div>
+    <div class="col-md-4 scene">
+      <img src=" <%= image_url "sence-3.jpg" %> " >
+      <p>商业</p>
+
+    </div>
+    <div class="col-md-4 scene">
+      <img src=" <%= image_url "sence-4.jpg" %> " >
+      <p>地面/手持摄影</p>
+
+    </div>
+    <div class="col-md-4 scene">
+      <img src=" <%= image_url "sence-5.jpg" %> " >
+      <p>婚礼</p>
+
+    </div>
+    <div class="col-md-4 scene">
+      <img src=" <%= image_url "sence-6.jpg" %> " >
+      <p>运动</p>
+
+    </div>
+  </div>
+</div>
+<!-- end of apply-area -->
+
+<!-- start of video area -->
+<div class="video-area">
+  <h1 class="text-center">精彩视频</h1>
+  <div class="row">
+    <div class="col-md-4 scene">
+      <img src=" <%= image_url "sence-1.jpg" %> " >
+
+    </div>
+    <div class="col-md-4 scene">
+      <img src=" <%= image_url "sence-1.jpg" %> " >
+
+    </div>
+    <div class="col-md-4 scene">
+      <img src=" <%= image_url "sence-1.jpg" %> " >
+
+    </div>
+    <div class="col-md-4 scene">
+      <img src=" <%= image_url "sence-5.jpg" %> " >
+
+    </div>
+    <div class="col-md-4 scene">
+      <img src=" <%= image_url "sence-5.jpg" %> " >
+
+    </div>
+    <div class="col-md-4 scene">
+      <img src=" <%= image_url "sence-5.jpg" %> " >
+
+    </div>
+  </div>
+</div>
+<!-- end of video area -->
+<div class="text-area">
+  <h1 class="life">生活<br>不止眼前的坐井观天<br>还要去探索远方的地平线</h1>
+
+  <div class="life">
+    <img src=" <%= image_url "text-2.png" %> " >
+    <!-- <img src=" <%= image_url "text-3.png" %> " > -->
+
+  </div>
+
+  <!-- <img src=" <%= image_url "slogan.jpg" %> " > -->
+  <h1>放进背包，马上出发去探索新视角！</h1>
+  <div class="bag">
+    <img src=" <%= image_url "bag.png" %> " >
+    <br>
+    <%= link_to "订购商品", products_path, class: "btn btn-lg" %>
+  </div>
+
+</div>

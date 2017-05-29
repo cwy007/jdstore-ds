@@ -15,7 +15,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li class="home"><%= link_to "首页", products_path %></li>
+            <li class="home"><%= link_to "商品首页", products_path %></li>
             <% Category.all.each_with_index do |category,index|%>
                 <li>
                   <%= link_to products_path(category: category.name) do %>    <!--根据不同的索引号显示图标-->
@@ -30,7 +30,7 @@
                     <% elsif index == 4 %>
                       <img src="<%= image_url "icon-inspire.svg" %>" onerror="this.src='your.png'">
                     <% end %>
-                    <div>
+                    <div class="text-center">
                       <%= category.name %>
                     </div>
                   <% end %>
@@ -52,7 +52,7 @@
           <div class="carousel-inner recommend">
             <div class="item active">
               <%= image_tag @category.try(:category_icon) %>
-              <div class="carousel-caption">
+              <div class="carousel-caption ">
                 <h1 class="text-center"><%= @category.name %></h1>
               </div>
             </div>
