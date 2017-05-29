@@ -2,24 +2,64 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// <!-- start of landing page页面轮播 -->
-.carousel .welcome{
-  height: 750px;
-  // border: 3px solid blue;
-  .carousel-inner div.item img {
-      // -webkit-filter: grayscale(90%);
-      // filter: grayscale(90%); /* make all photos black and white */
-      height: 750px !important; /* 改变图片高度 */
-      width: 100%; /* Set width to 100% */
-      margin: auto;
-      display: inline;
-      overflow: hidden;
-      // border: 3px solid red;
+//start of navbar-welcome
 
+.navbar-inverse {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  padding: 0;
+  border-radius: 0;
+
+  &.show_bgcolor {
+    background-color: #333 !important;
+  }
+}
+
+.top-navbar {
+  background-color: #fff !important;
+  padding: 0 !important;
+  border: none ;
+  border-radius: 0 ;
+  li > a {
+    color: #fff ;
+  }
+  li > a:active,
+  li > a:hover {
+    color: #44A8F2 ;
+    background-color: #333;
   }
 
-  .carousel-caption h3 {
-      color: #fff !important;
+}
+//end of navbar-welcome
+
+
+// start of landing page页面轮播
+#Carousel1 {
+  height: 750px;
+  min-width:1200px;
+  width: 100%;
+  position: relative;
+
+  // border: 3px solid blue;
+  overflow: hidden;
+  .carousel-inner > .item > img {
+    width: 100%; /* Set width to 100% */
+  }
+
+  .carousel-caption {
+    top: 160px;
+    height: 300px;
+    letter-spacing: 5px;
+    font-size: 42px;
+    font-weight: 500;
+    img {
+      height: 220px;
+    }
+    a {
+      margin-top: 40px;
+      background-color: #44A8F2;
+      color: #fff;
+    }
   }
 
   @media (max-width: 600px) {
@@ -27,12 +67,129 @@
           display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
       }
   }
+  a.carousel-control.left > i,
   a.carousel-control.right > i {
     font-size: 120px;          /* 改变大小 */
     font-weight: normal;
     line-height: 750px;        /* 为了使元素居中 */
   }
 }
+// end of landing page页面轮播
 
+//  start of apply-area
+.scene-area {
+  background-color: #FCF8EE;
+  // background-color: #DCF9F1;
 
-// <!-- end of landing page页面轮播 -->
+  height: 780px;
+  padding: 10px 50px 50px 50px;
+
+  .scene {
+    // border: 3px solid red;
+    height: 340px;
+    // overflow: hidden;
+    padding: 40px;
+    p {
+      font-size: 30px;
+      font-weight: 500;
+      color: #fff;
+      position: absolute;
+      top: 70%;
+      left: 0px;
+      width: 100%;
+      text-align: center;
+
+    }
+    img {
+
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+// end of apply-area
+
+// start of video area
+.video-area {
+  background-color: #DCF9F1;
+  // background-color: #FCF8EE;
+
+  height: 780px;
+  padding: 10px 50px 25px 50px;
+  .scene {
+    // border: 3px solid red;
+    height: 320px;
+    overflow: hidden;
+    padding: 40px;
+    img {
+      width: 100%;
+    }
+  }
+}
+// end of video area
+
+//start of text-area
+.text-area {
+  background-color: #FCF8EE;
+  height: 1200px;
+  overflow: hidden;
+  text-align: center;
+  letter-spacing: 4px;
+  color: #333;
+  div.life {
+    width: 100%;
+    height: 480px;
+    background-image: url('text-1.jpg');
+    background-size: cover;
+    img {
+      height: 150px;;
+      width: 290px;
+      position: relative;
+      right: -430px;
+      bottom: 80px;
+    }
+  }
+
+  h1 {
+    margin: 60px 0 50px;
+  }
+  .bag {
+    img {
+      height: 200px;
+      width: 200px;
+    }
+    a {
+      margin-top: 40px;
+      background-color: #44A8F2;
+      color: #fff;
+    }
+  }
+
+}
+//end of text-area
+
+// start of footer
+footer {
+  background-color: #FFF7E4;
+  background-color: #333;
+  color: #9d9d9d;
+  // border: 3px solid green;
+  height: 200px;
+  .row {
+    padding: 30px 35% 15px;
+  }
+  dt {
+    font-size: 16px;
+  }
+  a {
+    color: #9d9d9d;
+  }
+  a:hover,
+  a:active {
+    color: #fff;
+  }
+  p {
+    margin: 0 0;
+  }
+}
+// end of footer

@@ -9,25 +9,26 @@ nav.category_nav {
 
   ul {
     display: block;
-    border-top: 1px solid #DDD;
-    margin: 0 auto;
+    margin: 0 auto 5px;
+    padding: 0 auto;
+    a {
+      padding: 0;
+    }
     li.home {
       margin-top: 40px;
-      text-align: center;
       font-size: 26px;
     }
     li {
-      // border: 1px solid red;
-      margin: 0 30px;
+      margin: 0 40px;
       img {
         display: block;  //与下面一行结合，使图片居中
-        margin: 0 auto 10px;
+        margin: 0 auto;
       }
     }
   }
 }
 
-//start of products#index carousel for recommend
+//start of products#index carousel
  div.category{
 
   position: relative;
@@ -84,7 +85,7 @@ nav.category_nav {
   }
 
 }
-//end of products#index carousel for recommend
+//end of products#index carousel
 
 
 // products#show product photos
@@ -147,7 +148,7 @@ nav.category_nav {
   }
 }
 
-// tart of comment & product details
+// part of comment & product details
 .comment {
   .btn {
     background-color:  #44A8F2;
