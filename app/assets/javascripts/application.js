@@ -36,4 +36,22 @@ $(document).on("turbolinks:load", function(){
     $(this).hide();
   });
    /*PJH 1113 end 鼠标移动到购物车块部弹出购物车下拉*/
+});
+
+//start of goTtop
+$(document).on("turbolinks:load", function(){
+  $(window).scroll(function () {
+    if ($(this).scrollTop() > 600) {
+      $(".goTop").fadeIn(100);
+    } else {
+      $(".goTop").fadeOut(200);
+    }
+  });
+  $(".goTop").click(
+    function() {
+      $('html,body').animate({
+        scrollTop: 0
+      }, 700);
+    });
 })
+//end of goTop
