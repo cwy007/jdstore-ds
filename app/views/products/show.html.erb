@@ -98,8 +98,8 @@
     <!-- end of right part-->
 
     <!-- start of comment & product details -->
-    <div class="col-md-12">
-      <div class="comment product_details">
+    <div class="col-md-12 comment product_details">
+      <!-- <div class="comment product_details"> -->
         <ul class="nav nav-tabs">
           <li class="active"><a data-toggle="tab" href="#product_details">商品详情</a></li>
           <li><a data-toggle="tab" href="#comment">商品评价( <%= @product.comments.count %> )</a></li>
@@ -110,7 +110,7 @@
             <div id="product_details" class="tab-pane fade in active">
               <% if @product_details.present? %>
                 <% @product_details.each do |p| %>
-                <%= image_tag p.image.url %>
+                  <%= image_tag p.image.url %>
                 <% end %>
               <% else %>
                 <h2>商家没有上传商品详情图片</h2><br>
@@ -154,7 +154,7 @@
             </div>
           </div>
         </div>
-      </div>
+      <!-- </div> -->
       <!-- end of comment & product details -->
     </div>
 
