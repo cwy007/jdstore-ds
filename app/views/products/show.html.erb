@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row">
-  <div class="col-md-10 col-md-offset-1 show">
+    <div class="col-md-10 col-md-offset-1 show">
 
     <!-- Start of product photos -->
     <div class="col-md-6 preview">
@@ -98,63 +98,66 @@
     <!-- end of right part-->
 
     <!-- start of comment & product details -->
-    <div class="col-md-12 comment product_details">
-      <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#product_details">商品详情</a></li>
-        <li><a data-toggle="tab" href="#comment">商品评价( <%= @product.comments.count %> )</a></li>
-      </ul>
-      <div class="col-md-8 col-md-offset-2">
-        <div class="tab-content">
-          <!-- start of product_details  -->
-          <div id="product_details" class="tab-pane fade in active">
-            <% if @product_details.present? %>
-              <% @product_details.each do |p| %>
-              <%= image_tag p.image.url %>
+    <div class="col-md-12">
+      <div class="comment product_details">
+        <ul class="nav nav-tabs">
+          <li class="active"><a data-toggle="tab" href="#product_details">商品详情</a></li>
+          <li><a data-toggle="tab" href="#comment">商品评价( <%= @product.comments.count %> )</a></li>
+        </ul>
+        <div class="col-md-8 col-md-offset-2">
+          <div class="tab-content">
+            <!-- start of product_details  -->
+            <div id="product_details" class="tab-pane fade in active">
+              <% if @product_details.present? %>
+                <% @product_details.each do |p| %>
+                <%= image_tag p.image.url %>
+                <% end %>
+              <% else %>
+                <h2>商家没有上传商品详情图片</h2><br>
+                <%= image_tag("http://placehold.it/400x400&text=No Product_details Images", class: "thumbnail" ) %>
               <% end %>
-            <% else %>
-              <h2>商家没有上传商品详情图片</h2><br>
-              <%= image_tag("http://placehold.it/400x400&text=No Product_details Images", class: "thumbnail" ) %>
-            <% end %>
-          </div>
-          <!-- end of product_details  -->
+            </div>
+            <!-- end of product_details  -->
 
-          <!-- start of new comment-->
-          <div id="comment" class="tab-pane">
-            <%= simple_form_for [@product,@comment] do |f| %>
-              <div class="comment-body">
-                <%= f.input :content, label: "添加评论", :input_html => {:rows => 5} %>
-              </div>
-              <div class="submit"  >
-                <%= f.submit "提交", data: { disable_with: "提交中..."}, :class => "btn btn-default" , style: "background-color:#44A8F2; color:#FFF"%>
-              </div>
-            <% end %>
-            <!-- end of new comment-->
-            <br>
-            <!-- start of comments#index -->
-            <% @comments.each do |comment| %>
-              <div class="well">
-                <div class="info">
-                  <span>
-                    <%= comment.user.email %>
-                  </span>
-                  <span class="pull-right">
-                    <%= comment.created_at.to_s(:long) %>
-                  </span>
-                </div>
-                <hr>
+            <!-- start of new comment-->
+            <div id="comment" class="tab-pane">
+              <%= simple_form_for [@product,@comment] do |f| %>
                 <div class="comment-body">
-                  <span>
-                    <%= simple_format(comment.content) %>
-                  </span>
+                  <%= f.input :content, label: "添加评论", :input_html => {:rows => 5} %>
                 </div>
-              </div>
-            <% end %>
-            <!-- end of comments#index -->
+                <div class="submit"  >
+                  <%= f.submit "提交", data: { disable_with: "提交中..."}, :class => "btn btn-default" , style: "background-color:#44A8F2; color:#FFF"%>
+                </div>
+              <% end %>
+              <!-- end of new comment-->
+              <br>
+              <!-- start of comments#index -->
+              <% @comments.each do |comment| %>
+                <div class="well">
+                  <div class="info">
+                    <span>
+                      <%= comment.user.email %>
+                    </span>
+                    <span class="pull-right">
+                      <%= comment.created_at.to_s(:long) %>
+                    </span>
+                  </div>
+                  <hr>
+                  <div class="comment-body">
+                    <span>
+                      <%= simple_format(comment.content) %>
+                    </span>
+                  </div>
+                </div>
+              <% end %>
+              <!-- end of comments#index -->
+            </div>
           </div>
         </div>
       </div>
+      <!-- end of comment & product details -->
     </div>
-    <!-- end of comment & product details -->
+
   </div>
-</div>
+  </div>
 </div>
