@@ -3,23 +3,41 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 //start of navbar-welcome
+.top-navbar {
+  // background-color: #FFF;
 
-.navbar-inverse {
+  .navbar-header {
+    a {
+      position: relative;
+      top: -28px;
+      img {
+        margin-bottom: -3px;
+        width: 80px;
+        height: 80px;
+      }
+    }
+  }
+}
+
+.navbar-welcome {
   background-color: transparent !important;
   border-color: transparent !important;
   padding: 0;
   border-radius: 0;
-
   &.show_bgcolor {
     background-color: #333 !important;
   }
-}
-
-.top-navbar {
-  background-color: #fff !important;
-  padding: 0 !important;
-  border: none ;
-  border-radius: 0 ;
+  .navbar-header {
+    a {
+      position: relative;
+      top: -28px;
+      img {
+        margin-bottom: -3px;
+        width: 80px;
+        height: 80px;
+      }
+    }
+  }
   li > a {
     color: #fff ;
   }
@@ -28,8 +46,8 @@
     color: #44A8F2 ;
     background-color: #333;
   }
-
 }
+
 //end of navbar-welcome
 
 
