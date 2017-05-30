@@ -5,7 +5,6 @@
 //products#index category navbar
 nav.category_nav {
   // border: 1px solid red;
-  margin: 0 0 0 50px;
 
   ul {
     display: block;
@@ -92,21 +91,18 @@ nav.category_nav {
   margin-bottom: 50px;
   margin-top: 25px;
   background-color: #f7f8f9;
-  // border: 1px solid blue;
-
+  padding: 0;
   ul.product-list {
     text-align: center;
-    padding: 0;
-    margin: 0;
+
     li {
       // border: 1px solid blue;
       height: 353px;
       width: 280px;
-      margin: 8px;
+      margin: 8px 9px 8px 9px;
       padding: 0;
       overflow: hidden;
       background-color: #FFF;
-      // box-shadow: 0 0 12px 6px rgba(0,0,0,0.1);
 
       .title {
         color: #333;
