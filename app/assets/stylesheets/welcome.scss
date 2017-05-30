@@ -47,7 +47,7 @@
   }
 
   .carousel-caption {
-    top: 160px;
+    top: 40px;
     height: 300px;
     letter-spacing: 5px;
     font-size: 42px;
@@ -79,15 +79,13 @@
 //  start of apply-area
 .scene-area {
   background-color: #FCF8EE;
-  // background-color: #DCF9F1;
-
-  height: 780px;
+  color: #9d9d9d;
+  height: 800px;
   padding: 10px 50px 50px 50px;
-
+  padding-top: 40px;
+  // padding: 0;
   .scene {
-    // border: 3px solid red;
     height: 340px;
-    // overflow: hidden;
     padding: 40px;
     p {
       font-size: 30px;
@@ -101,7 +99,6 @@
 
     }
     img {
-
       width: 100%;
       height: 100%;
     }
@@ -112,18 +109,12 @@
 // start of video area
 .video-area {
   background-color: #DCF9F1;
-  // background-color: #FCF8EE;
-
-  height: 780px;
+  height: 680px;
   padding: 10px 50px 25px 50px;
-  .scene {
-    // border: 3px solid red;
-    height: 320px;
-    overflow: hidden;
-    padding: 40px;
-    img {
-      width: 100%;
-    }
+  h1 {
+    margin: 50px 0 80px 0;
+    color: #9d9d9d;
+
   }
 }
 // end of video area
@@ -135,7 +126,8 @@
   overflow: hidden;
   text-align: center;
   letter-spacing: 4px;
-  color: #333;
+  color: #9d9d9d;
+
   div.life {
     width: 100%;
     height: 480px;
@@ -170,7 +162,6 @@
 
 // start of footer
 footer {
-  background-color: #FFF7E4;
   background-color: #333;
   color: #9d9d9d;
   // border: 3px solid green;
