@@ -1,150 +1,184 @@
-<div class="row">
-  <!-- start of category nav -->
-  <nav class="navbar category_nav">
-    <div class="container-fluid">
-      <div class="col-md-10 col-md-offset-1">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li class="home"><%= link_to "商品首页", products_path %></li>
-            <% Category.all.each_with_index do |category,index|%>
-                <li>
-                  <%= link_to products_path(category: category.name) do %>    <!--根据不同的索引号显示图标-->
-                    <% if index == 0 %>
-                      <img src="<%= image_url "icon-spark.svg" %>" onerror="this.src='your.png'">
-                    <% elsif index == 1 %>
-                      <img src="<%= image_url "icon-mavic.svg" %>" onerror="this.src='your.png'">
-                    <% elsif index == 2 %>
-                      <img src="<%= image_url "icon-phantom.svg" %>" onerror="this.src='your.png'">
-                    <% elsif index == 3 %>
-                      <img src="<%= image_url "icon-osmo.svg" %>" onerror="this.src='your.png'">
-                    <% elsif index == 4 %>
-                      <img src="<%= image_url "icon-inspire.svg" %>" onerror="this.src='your.png'">
-                    <% end %>
-                    <div class="text-center">
-                      <%= category.name %>
-                    </div>
-                  <% end %>
-                </li>
+<!-- start of category nav -->
+<nav class="navbar category_nav">
+  <div class="container-fluid">
+    <div class="col-md-10 col-md-offset-1">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="home"><%= link_to "商店主页", products_path %></li>
+          <% Category.all.each_with_index do |category,index|%>
+          <li>
+            <%= link_to products_path(category: category.name) do %>    <!--根据不同的索引号显示图标-->
+            <% if index == 0 %>
+            <img src="<%= image_url "icon-spark.svg" %>" onerror="this.src='your.png'">
+            <% elsif index == 1 %>
+            <img src="<%= image_url "icon-mavic.svg" %>" onerror="this.src='your.png'">
+            <% elsif index == 2 %>
+            <img src="<%= image_url "icon-phantom.svg" %>" onerror="this.src='your.png'">
+            <% elsif index == 3 %>
+            <img src="<%= image_url "icon-osmo.svg" %>" onerror="this.src='your.png'">
+            <% elsif index == 4 %>
+            <img src="<%= image_url "icon-inspire.svg" %>" onerror="this.src='your.png'">
             <% end %>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div>
-    </div><!-- /.container-fluid -->
-  </nav>
-  <!-- end of category nav -->
-
-
-  <% if params[:category].present? %>
-      <div class="category">
-        <div id="myCarousel" class="carousel slide " data-ride="carousel">
-
-          <!-- Wrapper for slides -->
-          <div class="carousel-inner recommend">
-            <div class="item active">
-              <%= image_tag @category.try(:category_icon) %>
-              <div class="carousel-caption ">
-                <h1 class="text-center"><%= @category.name %></h1>
-              </div>
+            <div class="text-center">
+              <%= category.name %>
             </div>
-          </div>
-        </div>
-      </div>
-  <% else %>
-    <!-- start of carousel-->
-    <div class="category">
-      <div id="myCarousel" class="carousel slide " data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
-          <li data-target="#myCarousel" data-slide-to="2"></li>
-          <li data-target="#myCarousel" data-slide-to="3"></li>
-          <li data-target="#myCarousel" data-slide-to="4"></li>
-        </ol>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner recommend">
-          <div class="item active">
-            <img src=" <%= image_url "banner-0.jpg" %> ">
-            <div class="carousel-caption">
-              <h2>"晓" SPARK</h2>
-              <p>掌上起落 • 手势控制 • 一键短片</p>
-            </div>
-          </div>
-
-          <div class="item">
-            <img src="<%= image_url "banner-1.jpg" %>" >
-            <div class="carousel-caption">
-              <h2>PHANTOM 4 ADVANCED</h2>
-              <p>1英寸传感器 • 7km操纵距离 • 前视感知障碍</p>
-            </div>
-          </div>
-
-          <div class="item">
-            <img src="<%= image_url "banner-2.jpg" %>">
-            <div class="carousel-caption">
-              <h2>MAVIC PRO</h2>
-              <p>御万物之律 游无疆境界 <br>宇宙万象 尽在掌握</p>
-            </div>
-          </div>
-
-          <div class="item">
-            <img src="<%= image_url "banner-3.jpg" %>" >
-            <div class="carousel-caption">
-              <h2>PHANTOM 4 PRO</h2>
-              <p>1英寸传感器 • 30分钟续航 • 5向环境感知</p>
-            </div>
-          </div>
-
-          <div class="item">
-            <img src="<%= image_url "banner-4.jpg" %>" >
-            <div class="carousel-caption">
-              <h2>INSPIRE 2</h2>
-              <p>强大，超出想象</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Left and right controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-          <i class="fa fa-angle-left"></i>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-          <i class="fa fa-angle-right"></i>
-        </a>
-      </div>
-    </div>
-    <!-- end of carousel-->
-  <% end %>
-
-  <!-- start of product list  -->
-  <div class="col-md-10 col-md-offset-1">
-    <h2>Product List</h2>
-    <div class="container">
-      <div class="row">
-        <% @products.each do |product| %>
-          <%= link_to product_path(product) do %>
-            <div class="col-xs-6 col-md-3">
-              <% if product.photos.present? %>
-                <%= image_tag(product.photos[0].image.thumb.url, class: "thumbnail") %>
-              <% else %>
-                <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail" ) %>
-              <% end %>
-              <div><%= product.title %> : ¥<%= product.price %></div>
-            </div>
+            <% end %>
+          </li>
           <% end %>
-        <% end %>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div>
+  </div><!-- /.container-fluid -->
+</nav>
+<!-- end of category nav -->
+
+<% if params[:category].present? %>
+<div class="category">
+  <div id="myCarousel" class="carousel slide " data-ride="carousel">
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner recommend">
+      <div class="item active">
+        <%= image_tag @category.try(:category_icon) %>
+        <div class="carousel-caption ">
+          <h1 class="text-center"><%= @category.name %></h1>
+        </div>
       </div>
     </div>
   </div>
 </div>
+<% else %>
+<!-- start of carousel-->
+<div class="category">
+  <div id="myCarousel" class="carousel slide " data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+      <li data-target="#myCarousel" data-slide-to="4"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner recommend">
+      <div class="item active">
+        <img src=" <%= image_url "banner-0.jpg" %> ">
+        <div class="carousel-caption">
+          <h2>"晓" SPARK</h2>
+          <p>掌上起落 • 手势控制 • 一键短片</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="<%= image_url "banner-1.jpg" %>" >
+        <div class="carousel-caption">
+          <h2>PHANTOM 4 ADVANCED</h2>
+          <p>1英寸传感器 • 7km操纵距离 • 前视感知障碍</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="<%= image_url "banner-2.jpg" %>">
+        <div class="carousel-caption">
+          <h2>MAVIC PRO</h2>
+          <p>御万物之律 游无疆境界 <br>宇宙万象 尽在掌握</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="<%= image_url "banner-3.jpg" %>" >
+        <div class="carousel-caption">
+          <h2>PHANTOM 4 PRO</h2>
+          <p>1英寸传感器 • 30分钟续航 • 5向环境感知</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="<%= image_url "banner-4.jpg" %>" >
+        <div class="carousel-caption">
+          <h2>INSPIRE 2</h2>
+          <p>强大，超出想象</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <i class="fa fa-angle-left"></i>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <i class="fa fa-angle-right"></i>
+    </a>
+  </div>
+</div>
+<!-- end of carousel-->
+<% end %>
+
+<!-- start of product list  -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 " id="product-list">
+      <ul class="product-list ">
+        <% if params[:category].present? %>
+        <% @category.products.each do |product| %>
+        <%= link_to product_path(product) do %>
+        <li class="col-md-3">
+          <% if product.photos.present? %>
+          <div class="image">
+            <%= image_tag(product.photos[0].image.url) %>
+          </div>
+          <% else %>
+          <div class="image">
+            <%= image_tag("http://placehold.it/200x200&text=No Pic") %>
+          </div>
+          <% end %>
+          <div>
+            <%= product.title %>
+          </div>
+          <div>
+            <%= product.price %>
+          </div>
+        </li>
+        <% end %>
+        <% end %>
+        <% else %>
+        <% @products.each do |product| %>
+        <%= link_to product_path(product) do %>
+        <li class="col-md-3">
+          <% if product.photos.present? %>
+          <div class="image">
+            <%= image_tag(product.photos[0].image.url) %>
+          </div>
+          <% else %>
+          <div class="image">
+            <%= image_tag("http://placehold.it/200x200&text=No Pic") %>
+          </div>
+          <% end %>
+          <div class="title">
+            <%= product.title %>
+          </div>
+          <div class="price">
+            ¥ <%= product.price %>
+          </div>
+        </li>
+        <% end %>
+        <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- end of product list  -->

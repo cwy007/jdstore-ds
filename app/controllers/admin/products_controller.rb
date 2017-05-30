@@ -46,18 +46,18 @@ class Admin::ProductsController < ApplicationController
       params[:photos]['image'].each do |i|                #遍历白名单params中的数据
         @photo = @product.photos.create(:image => i)      #新建
       end
+    end
 
-      if params[:product_details] != nil
-        @product.product_details.destroy_all
+    if params[:product_details] != nil
+      @product.product_details.destroy_all
 
-        params[:product_details]['image'].each do |i|
-          @product_detail = @product.product_details.create(:image => i)
-        end
+      params[:product_details]['image'].each do |i|
+        @product_detail = @product.product_details.create(:image => i)
       end
-      @product.update(product_params)
-      redirect_to admin_products_path
-    elsif @product.update(product_params)
-      redirect_to admin_products_path
+    end
+
+    if @product.update(product_params)
+       redirect_to admin_products_path
     else
       render :edit
     end
