@@ -4,7 +4,11 @@
 
 //start of navbar-welcome
 .top-navbar {
-  // background-color: #FFF;
+  background-color: #333 !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  // width: 100%;
 
   .navbar-header {
     a {
@@ -184,7 +188,7 @@ footer {
   color: #9d9d9d;
   // border: 3px solid green;
   height: 200px;
-  .row {
+  .row{
     padding: 30px 35% 15px;
   }
   dt {

@@ -15,7 +15,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li class="home"><%= link_to "商品首页", products_path %></li>
+            <li class="home"><%= link_to "商店主页", products_path %></li>
             <% Category.all.each_with_index do |category,index|%>
                 <li>
                   <%= link_to products_path(category: category.name) do %>    <!--根据不同的索引号显示图标-->
@@ -128,23 +128,55 @@
   <% end %>
 
   <!-- start of product list  -->
-  <div class="col-md-10 col-md-offset-1">
-    <h2>Product List</h2>
-    <div class="container">
-      <div class="row">
-        <% @products.each do |product| %>
+  <div class="col-md-10 col-md-offset-1 " id="product-list">
+    <ul class="product-list ">
+      <% if params[:category].present? %>
+        <% @category.products.each do |product| %>
           <%= link_to product_path(product) do %>
-            <div class="col-xs-6 col-md-3">
+            <li class="col-md-3">
               <% if product.photos.present? %>
-                <%= image_tag(product.photos[0].image.thumb.url, class: "thumbnail") %>
+                <div class="image">
+                  <%= image_tag(product.photos[0].image.url) %>
+                </div>
               <% else %>
-                <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail" ) %>
+                <div class="image">
+                  <%= image_tag("http://placehold.it/200x200&text=No Pic") %>
+                </div>
               <% end %>
-              <div><%= product.title %> : ¥<%= product.price %></div>
-            </div>
+              <div>
+                <%= product.title %>
+              </div>
+              <div>
+                <%= product.price %>
+              </div>
+            </li>
           <% end %>
         <% end %>
-      </div>
-    </div>
+      <% else %>
+        <% @products.each do |product| %>
+          <%= link_to product_path(product) do %>
+            <li class="col-md-3">
+              <% if product.photos.present? %>
+                <div class="image">
+                  <%= image_tag(product.photos[0].image.url) %>
+                </div>
+              <% else %>
+                <div class="image">
+                  <%= image_tag("http://placehold.it/200x200&text=No Pic") %>
+                </div>
+              <% end %>
+              <div class="title">
+                <%= product.title %>
+              </div>
+              <div class="price">
+                ¥ <%= product.price %>
+              </div>
+            </li>
+          <% end %>
+        <% end %>
+      <% end %>
+    </ul>
   </div>
+  <!-- end of product list  -->
+
 </div>
