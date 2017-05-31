@@ -61,8 +61,6 @@
   min-width:1200px;
   width: 100%;
   position: relative;
-
-  // border: 3px solid blue;
   overflow: hidden;
   .carousel-inner > .item > img {
     width: 100%; /* Set width to 100% */
@@ -105,7 +103,6 @@
   height: 800px;
   padding: 10px 50px 50px 50px;
   padding-top: 40px;
-  // padding: 0;
   .scene {
     height: 340px;
     padding: 40px;
@@ -182,32 +179,33 @@
 }
 //end of text-area
 
+
+// start这一步分是将footer置底
+html,
+body {
+	margin:0;
+	padding:0;
+	height:100%;
+}
+#wrapper {
+	min-height:100%;
+	position:relative;
+}
+
+#content {
+	padding-bottom:207px; /* Height of the footer element */
+
+}
+#footer {
+	width:100%;
+	height:207px;
+	position:absolute;
+	bottom:0;
+	left:0;
+}
+// end 这一步分是将footer置底
+
 // start of footer
-  // start这一步分是将footer置底
-  html,
-  body {
-  	margin:0;
-  	padding:0;
-  	height:100%;
-  }
-  #wrapper {
-  	min-height:100%;
-  	position:relative;
-  }
-
-  #content {
-  	padding-bottom:207px; /* Height of the footer element */
-
-  }
-  #footer {
-  	width:100%;
-  	height:207px;
-  	position:absolute;
-  	bottom:0;
-  	left:0;
-  }
-  // end 这一步分是将footer置底
-
 footer {
   padding: 10px 0;
   background-color: #333;
@@ -225,8 +223,5 @@ footer {
   a:active {
     color: #fff;
   }
-  // p {
-  //   padding: 10px 0;
-  // }
 }
 // end of footer
