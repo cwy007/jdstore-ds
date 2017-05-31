@@ -136,102 +136,132 @@ nav.category_nav {
 // end of products#index product-list
 
 
-// products#show product photos
-.row {
-  .preview {
-    .preview-pic {
-      // border: 1px solid red;
-      img {
-        margin-top: 60px;
-        height: 396px;
-        width: 595px;
-        // border: 1px solid #ddd;
-        vertical-align: top;
-      }
-    }
-    .preview-thumb {
-      margin: 10px 0;
-      padding: 0 0 0 100px;;
-      li {
-        margin: 20px 10px 50px 10px;;
-        img {
-          height: 35px;
-          width: 53px;
-        }
-        a {
-          border-radius: 0px;
-          padding: 0px;
-          border: 1px solid #ddd;
-        }
-        a:hover,
-        a:active {
-          border: 1px solid #D32048;
-        }
-      }
-    }
-  }
-}
-
-// products#show info-section
-.product-info-section {
-  // border: 1px solid #D32048;
-  height: auto;
-  width: 450px;
-  margin: 60px 5px 0 100px;
-  padding: 40px 0 0 5px;
-  .price {
-    font-size: 26px;
-  }
-
-  .btn {
-    border-radius: 0;
-    border: none;
-    color: #FFF;
-  }
-
-  a, a:hover, a:active {
-    background-color:  #44A8F2;
-    color: #FFF;
-
-  }
-}
-
-// part of comment & product details
-.product_details {
-  // min-height: 1000px;
+div.col-md-10.product-show {
+  // background-color: #FFF;
+  // padding: 0 ;
   margin-bottom: 100px;
-  background-color: #FFF;
-  padding: 0 0 50px 0 !important;
-  border: 1px solid #DDD;
-  #product_details {
-    width: 800px;
-    img {
-      width: 100%;
+
+  // start of products#show breadcrub
+  ol.breadcrumb{
+    background-color: #FFF;
+    // width: 50%;
+    margin: 30px 0 2px 0;
+
+    // margin-bottom: 10px;
+    // border: 1px solid red !important;
+    li {
+      // border: 1px solid red !important;
+
     }
   }
-  .btn {
-    background-color:  #44A8F2;
-    border-radius: 0;
-    border: none;
-  }
-  ul {
-    margin: 0 0 50px 0 !important;
-    background-color:  #DDD;
-    margin: 0;
+  // end of products#show breadcrub
 
-    li {
-      margin-left: 0;
-      margin-right: 0;
-      width: 50%;
-      text-align: center;
-      a {
-        margin: 0;
-        color: #44A8F2;
-        font-size: 16px;
+  .row{
+    background-color: #FFF;
+    padding-bottom: 30px;
+    //products#show product photos
+    div.preview {
+      background-color: #FFF;
+      .preview-pic {
+        // border: 1px solid red;
+        img {
+          margin-top: 60px;
+          height: 396px;
+          width: 595px;
+          // border: 1px solid #ddd;
+          vertical-align: top;
+        }
+      }
+      .preview-thumb {
+        margin: 10px 0;
+        padding: 0 0 0 100px;;
+        li {
+          margin: 20px 10px 50px 10px;;
+          img {
+            height: 35px;
+            width: 53px;
+          }
+          a {
+            border-radius: 0px;
+            padding: 0px;
+            border: 1px solid #ddd;
+          }
+          a:hover,
+          a:active {
+            border: 1px solid #D32048;
+          }
+        }
       }
     }
-  .comment-body{
-    width: 20px;
+
+    // products#show info-section
+    .product-info-section {
+      background-color: #FFF;
+
+      // border: 1px solid #D32048;
+      height: auto;
+      width: 450px;
+      margin: 60px 5px 0 100px;
+      padding: 40px 0 0 5px;
+      .price {
+        font-size: 26px;
+      }
+
+      .btn {
+        border-radius: 0;
+        border: none;
+        color: #FFF;
+      }
+
+      a, a:hover, a:active {
+        background-color:  #44A8F2;
+        color: #FFF;
+
+      }
+    }
   }
+
+  // part of comment & product details
+  .product_details {
+    background-color: #FFF;
+
+    margin-top: 80px;
+    // min-height: 1000px;
+    // margin-bottom: 100px;
+    padding: 0 0 50px 0 !important;
+    border: 1px solid #DDD;
+    #product_details {
+      width: 800px;
+      img {
+        width: 100%;
+      }
+    }
+    .btn {
+      background-color:  #44A8F2;
+      border-radius: 0;
+      border: none;
+    }
+    ul {
+      margin: 0 0 50px 0 !important;
+      background-color: #f7f8f9;
+      margin: 0;
+
+
+      li {
+        // margin-left: 0;
+        // margin-right: 0;
+        width: 50%;
+        text-align: center;
+        a {
+          margin: 0;
+          color: #333;
+
+          font-size: 16px;
+        }
+      }
+      .comment-body{
+        width: 20px;
+      }
+    }
   }
 }
