@@ -21,6 +21,17 @@
  @import "select2";
  @import "select2-bootstrap";
 
+ // start 将管理员页面背景设为白色
+ .admin-container {
+   padding: 0 !important;
+   background-color: #FFF;
+   .admin-navbar {
+     margin-bottom: 30px;
+   }
+ }
+ //end 将管理员页面背景设为白色
+
+
 // start of navbar-cart
 #top-cart {
   .cart-bd {
@@ -111,7 +122,7 @@
 //start of goTtop
 .goTop {
   position: fixed;
-  bottom: 86px;
+  bottom: 90px;
   right: 30px;
   height: 40px;
   width: 40px;
@@ -123,6 +134,7 @@
 }
 .goTop:hover {
   box-shadow: 0px 0px 30px #bbb;
+  cursor: pointer;
 }
 //end of goTop
 

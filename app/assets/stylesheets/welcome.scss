@@ -183,11 +183,35 @@
 //end of text-area
 
 // start of footer
+  // start这一步分是将footer置底
+  html,
+  body {
+  	margin:0;
+  	padding:0;
+  	height:100%;
+  }
+  #wrapper {
+  	min-height:100%;
+  	position:relative;
+  }
+
+  #content {
+  	padding-bottom:207px; /* Height of the footer element */
+
+  }
+  #footer {
+  	width:100%;
+  	height:207px;
+  	position:absolute;
+  	bottom:0;
+  	left:0;
+  }
+  // end 这一步分是将footer置底
+
 footer {
+  padding: 10px 0;
   background-color: #333;
   color: #9d9d9d;
-  // border: 3px solid green;
-  height: 200px;
   .row{
     padding: 30px 35% 15px;
   }
@@ -201,8 +225,8 @@ footer {
   a:active {
     color: #fff;
   }
-  p {
-    margin: 0 0;
-  }
+  // p {
+  //   padding: 10px 0;
+  // }
 }
 // end of footer

@@ -11,15 +11,20 @@
   </head>
 
   <body>
-    <%= render "common/navbar" %>
-    <div class="container-fluid">
-      <div class="row">
-        <%= render "common/flashes" %>
-        <%= yield %>
-        <%= render "common/footer" %>
+    <div id="wrapper">
+      <%= render "common/navbar" %>
+      <div class="container-fluid" id="content">
+        <div class="row">
+          <%= render "common/flashes" %>
+
+          <%= yield %>
+          <div class="goTop text-center">
+            <i class="fa fa-arrow-up"></i>
+          </div>
+        </div>
       </div>
-      <div class="goTop text-center">
-        <i class="fa fa-arrow-up"></i>
+      <div id="footer">
+        <%= render "common/footer" %>
       </div>
     </div>
   </body>
