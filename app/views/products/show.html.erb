@@ -1,104 +1,116 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-10 col-md-offset-1 show">
+    <div class="col-md-10 col-md-offset-1 product-show">
 
-    <!-- Start of product photos -->
-    <div class="col-md-6 preview">
-      <% if @photos.present? %>
-      <div class="tab-content preview-pic">
-        <div id="pic1" class="tab-pane fade in active">
-          <% if @photos[0].present? %>
-            <%= image_tag @photos[0].image.url %>
-          <% end %>
-        </div>
-        <div id="pic2" class="tab-pane fade">
-          <% if @photos[1].present? %>
-            <%= image_tag @photos[1].image.url %>
-          <% end %>
-        </div>
-        <div id="pic3" class="tab-pane fade">
-          <% if @photos[2].present? %>
-            <%= image_tag @photos[2].image.url %>
-          <% end %>
-        </div>
-        <div id="pic4" class="tab-pane fade">
-          <% if @photos[3].present? %>
-            <%= image_tag @photos[3].image.url %>
-          <% end %>
-        </div>
-        <div id="pic5" class="tab-pane fade">
-          <% if @photos[4].present? %>
-            <%= image_tag @photos[4].image.url %>
-          <% end %>
+      <ol class="breadcrumb ">
+        <li><%= link_to "主页", products_path %></li>
+        <% if @product.category.present? %>
+        <li><%= link_to @product.category.name, products_path(category: @product.category.name) %></li>
+        <% end %>
+        <li class="active"><%= @product.try(:title) %></li>
+      </ol>
+      <div class="container-fluid">
+        <div class="row">
+          <!-- Start of product photos -->
+          <div class="col-md-6 preview">
+            <% if @photos.present? %>
+            <div class="tab-content preview-pic">
+              <div id="pic1" class="tab-pane fade in active">
+                <% if @photos[0].present? %>
+                <%= image_tag @photos[0].image.url %>
+                <% end %>
+              </div>
+              <div id="pic2" class="tab-pane fade">
+                <% if @photos[1].present? %>
+                <%= image_tag @photos[1].image.url %>
+                <% end %>
+              </div>
+              <div id="pic3" class="tab-pane fade">
+                <% if @photos[2].present? %>
+                <%= image_tag @photos[2].image.url %>
+                <% end %>
+              </div>
+              <div id="pic4" class="tab-pane fade">
+                <% if @photos[3].present? %>
+                <%= image_tag @photos[3].image.url %>
+                <% end %>
+              </div>
+              <div id="pic5" class="tab-pane fade">
+                <% if @photos[4].present? %>
+                <%= image_tag @photos[4].image.url %>
+                <% end %>
+              </div>
+            </div>
+            <ul class="nav nav-pills preview-thumb">
+              <% if @photos[0].present? %>
+              <li class="active">
+                <a data-toggle="pill" href="#pic1">
+                  <%= image_tag @photos[0].image.thumb.url %>
+                </a>
+              </li>
+              <% end %>
+              <% if @photos[1].present? %>
+              <li>
+                <a data-toggle="pill" href="#pic2">
+                  <%= image_tag @photos[1].image.thumb.url %>
+                </a>
+              </li>
+              <% end %>
+              <% if @photos[2].present? %>
+              <li>
+                <a data-toggle="pill" href="#pic3">
+                  <%= image_tag @photos[2].image.thumb.url %>
+                </a>
+              </li>
+              <% end %>
+              <% if @photos[3].present? %>
+              <li>
+                <a data-toggle="pill" href="#pic4">
+                  <%= image_tag @photos[3].image.thumb.url %>
+                </a>
+              </li>
+              <% end %>
+              <% if @photos[4].present? %>
+              <li>
+                <a data-toggle="pill" href="#pic5">
+                  <%= image_tag @photos[4].image.thumb.url %>
+                </a>
+              </li>
+              <% end %>
+            </ul>
+            <% else %>
+            <%= image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail") %>
+            <% end %>
+          </div>
+          <!-- End of product photos -->
+
+          <!-- start of right part-->
+          <div class="col-md-6">
+            <div class="product-info-section">
+              <h1 class="produc-title"><%= @product.title %></h1>
+              <hr>
+              <p class="price">¥ <%= @product.price %></p>
+              <p>库存：<%= @product.quantity %></p>
+              <p>邮费：免费</p>
+              <hr>
+              <p><%= simple_format(@product.description) %></p>
+              <hr>
+              <div class="">
+                <% if @product.quantity.present? && @product.quantity > 0 %>
+                <%= link_to "加入购物车", add_to_cart_product_path(@product), method: :post, class: "btn btn-lg" %>
+                <% else %>
+                已销售一空，无法购买
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <!-- end of right part-->
         </div>
       </div>
-      <ul class="nav nav-pills preview-thumb">
-        <% if @photos[0].present? %>
-          <li class="active">
-            <a data-toggle="pill" href="#pic1">
-              <%= image_tag @photos[0].image.thumb.url %>
-            </a>
-          </li>
-        <% end %>
-        <% if @photos[1].present? %>
-          <li>
-            <a data-toggle="pill" href="#pic2">
-              <%= image_tag @photos[1].image.thumb.url %>
-            </a>
-          </li>
-        <% end %>
-        <% if @photos[2].present? %>
-          <li>
-            <a data-toggle="pill" href="#pic3">
-              <%= image_tag @photos[2].image.thumb.url %>
-            </a>
-          </li>
-        <% end %>
-        <% if @photos[3].present? %>
-          <li>
-            <a data-toggle="pill" href="#pic4">
-              <%= image_tag @photos[3].image.thumb.url %>
-            </a>
-          </li>
-        <% end %>
-        <% if @photos[4].present? %>
-          <li>
-            <a data-toggle="pill" href="#pic5">
-              <%= image_tag @photos[4].image.thumb.url %>
-            </a>
-          </li>
-        <% end %>
-      </ul>
-      <% else %>
-        <%= image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail") %>
-      <% end %>
-    </div>
-    <!-- End of product photos -->
 
-    <!-- start of right part-->
-    <div class="col-md-6">
-      <div class="product-info-section">
-        <h1 class="produc-title"><%= @product.title %></h1>
-        <hr>
-        <p class="price">¥ <%= @product.price %></p>
-        <p>库存：<%= @product.quantity %></p>
-        <p>邮费：免费</p>
-        <hr>
-        <p><%= simple_format(@product.description) %></p>
-        <hr>
-        <div class="">
-          <% if @product.quantity.present? && @product.quantity > 0 %>
-            <%= link_to "加入购物车", add_to_cart_product_path(@product), method: :post, class: "btn btn-lg" %>
-          <% else %>
-            已销售一空，无法购买
-          <% end %>
-        </div>
-      </div>
-    </div>
-    <!-- end of right part-->
 
-    <!-- start of comment & product details -->
-    <div class="col-md-12 comment product_details">
+      <!-- start of comment & product details -->
+      <div class="col-md-12 comment product_details">
       <!-- <div class="comment product_details"> -->
         <ul class="nav nav-tabs">
           <li class="active"><a data-toggle="tab" href="#product_details">商品详情</a></li>
@@ -158,6 +170,6 @@
       <!-- end of comment & product details -->
     </div>
 
-  </div>
+    </div>
   </div>
 </div>

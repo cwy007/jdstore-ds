@@ -9,32 +9,46 @@
   </head>
 
   <body>
-    <div class="container">
-      <%= render "common/navbar" %>
-      <%= render "common/flashes" %>
-      <div class="row">
-        <div class="col-sm-2">
-          <ul class="nav nav-pills nav-stacked">
-            <li role="presentation" class="active">
-              <%= link_to "Products", admin_products_path %>
-            </li>
-            <li>
-              <%= link_to "Orders", admin_orders_path %>
-            </li>
-            <li>
-              <%= link_to "Categories", admin_categories_path %>
-            </li>
-            <li>
-              <%= link_to "Recommends", admin_recommends_path %>
-            </li>
-          </ul>
+    <div id="wrapper">
+      <div class="container admin-container" >
+        <div class="admin-navbar">
+          <%= render "common/navbar" %>
         </div>
-        <div class="col-sm-10">
-          <%= yield %>
+        <div id="content">
+
+          <div class="row">
+            <%= render "common/flashes" %>
+            <div class="col-sm-2">
+              <ul class="nav nav-pills nav-stacked">
+                <li role="presentation" class="active">
+                  <%= link_to "Products", admin_products_path %>
+                </li>
+                <li>
+                  <%= link_to "Orders", admin_orders_path %>
+                </li>
+                <li>
+                  <%= link_to "Categories", admin_categories_path %>
+                </li>
+                <li>
+                  <%= link_to "Recommends", admin_recommends_path %>
+                </li>
+              </ul>
+            </div>
+            <div class="col-sm-10">
+              <%= yield %>
+
+            </div>
+            <div class="goTop text-center">
+              <i class="fa fa-arrow-up"></i>
+            </div>
+          </div>
+        </div>
+        <div id="footer">
+          <div class="col-md-10 col-md-offset-1">
+            <%= render "common/footer" %>
+          </div>
         </div>
       </div>
     </div>
-
-    <%= render "common/footer" %>
   </body>
 </html>
