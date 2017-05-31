@@ -42,5 +42,6 @@ Rails.application.routes.draw do
   namespace :account do
     resources :orders
   end
-  root 'welcome#index'
+  root 'products#index'
+  get '/welcome/', to: 'welcome#index'
 end
