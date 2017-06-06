@@ -40,23 +40,23 @@ class Admin::ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    if params[:photos] != nil
-      @product.photos.destroy_all                          #这会删除photos表中的数据
-
-      params[:photos]['image'].each do |i|                #遍历白名单params中的数据
-        @photo = @product.photos.create(:image => i)      #新建
-      end
-    end
-
-    if params[:product_details] != nil
-      @product.product_details.destroy_all
-
-      params[:product_details]['image'].each do |i|
-        @product_detail = @product.product_details.create(:image => i)
-      end
-    end
-
     if @product.update(product_params)
+      if params[:photos] != nil
+        @product.photos.destroy_all                          #这会删除photos表中的数据
+
+        params[:photos]['image'].each do |i|                #遍历白名单params中的数据
+          @photo = @product.photos.create(:image => i)      #新建
+        end
+      end
+
+      if params[:product_details] != nil
+        @product.product_details.destroy_all
+
+        params[:product_details]['image'].each do |i|
+          @product_detail = @product.product_details.create(:image => i)
+        end
+      end
+      
        redirect_to admin_products_path
     else
       render :edit
